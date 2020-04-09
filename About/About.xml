@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding ="utf-8"?>
 <ModMetaData>
-	<name>Age Matters Updated</name>
+	<name>Age Matters Updated Alt</name>
 	<author>Troopersmith1 - Mage5000</author>
 	<supportedVersions>
 	<li>1.0</li>
 	<li>1.1</li>
 	</supportedVersions>
-	<packageId>Troopersmith1.AgeMattersUpdated</packageId>
+	<packageId>Troopersmith1.AgeMattersUpdatedAlt</packageId>
 	<url></url>
 	<modDependencies>
     <li>
@@ -21,7 +21,7 @@ Makes being very young very detrimental for your abilites, built purely for allo
 Stages:
 
 New Born 0 - 6mths:
-	completely incapeable will be bedridden and need feeding.
+	completely incapable will be bedridden and need feeding.
 	
 Baby 6mths - 1yr:
 	VERY slow, very sleepy, will probably spend most waking hours finding something
@@ -35,5 +35,7 @@ Young Child 2.5yrs - 7yrs:
 
 Child 7yrs - 12yrs:
 	slightly slower at moving and manipulating than adults.
+				
+		Alt Version w/ Faster Children
 	</description>
 </ModMetaData>

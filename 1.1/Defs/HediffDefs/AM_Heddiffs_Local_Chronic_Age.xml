@@ -20,7 +20,7 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <setMax>0.85</setMax>
+            <setMax>1.0</setMax>
           </li>
           <li>
             <capacity>Manipulation</capacity>
@@ -42,7 +42,7 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <setMax>0.75</setMax>
+            <setMax>0.85</setMax>
           </li>
           <li>
             <capacity>Manipulation</capacity>
@@ -62,7 +62,7 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <setMax>0.4</setMax>
+            <setMax>0.6</setMax>
           </li>
           <li>
             <capacity>Manipulation</capacity>
