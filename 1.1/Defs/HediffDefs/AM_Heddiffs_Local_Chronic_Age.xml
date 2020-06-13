@@ -9,6 +9,7 @@
     <labelNoun>a new born</labelNoun>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
+	    <!--default value [-0.0014] -->
         <severityPerDay>-0.0014</severityPerDay>
       </li>
     </comps>

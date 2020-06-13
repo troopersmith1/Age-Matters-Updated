@@ -39,7 +39,9 @@
 					defName = "O21_Alien_Hobgoblin" or
 					defName = "O21_Alien_Orc" or
 					defName = "O21_Alien_HalfOrc" or
-					defName = "O21_Alien_Tiefling"
+					defName = "O21_Alien_Tiefling" or
+					defName = "Alien_Callistan" or
+					defName = "Alien_TrenchCat"
 					]/race/hediffGiverSets</xpath>
 				<value>
 					<li>Human</li>
