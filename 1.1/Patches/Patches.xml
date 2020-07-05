@@ -31,6 +31,29 @@
             </li>
 			
 			<li Class="PatchOperationAdd">
+ 			<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "Alien_Bunlander" or
+					defName = "Alien_BunTribe" or
+					defName = "Alien_BunTribeNew"
+					]</xpath>
+				<value>
+					<race/>
+				</value>
+			</li>                       
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "Alien_Bunlander" or
+					defName = "Alien_BunTribe" or
+					defName = "Alien_BunTribeNew"
+					]/race</xpath>
+				<value>
+					<hediffGiverSets/>
+				</value>
+			</li>
+				
+			
+			<li Class="PatchOperationAdd">
 				<xpath>/Defs/AlienRace.ThingDef_AlienRace[
 					defName = "O21_Alien_ElfBase" or
 					defName = "O21_Alien_Kobold" or
@@ -41,7 +64,11 @@
 					defName = "O21_Alien_HalfOrc" or
 					defName = "O21_Alien_Tiefling" or
 					defName = "Alien_Callistan" or
-					defName = "Alien_TrenchCat"
+					defName = "Alien_TrenchCat" or
+					defName = "Rabbie" or
+					defName = "Alien_Bunlander" or
+					defName = "Alien_BunTribe" or
+					defName = "Alien_BunTribeNew"
 					]/race/hediffGiverSets</xpath>
 				<value>
 					<li>Human</li>
