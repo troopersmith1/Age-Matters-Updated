@@ -4,9 +4,9 @@
   <HediffDef ParentName="DiseaseBase">
     <defName>Youth</defName>
     <label>youth</label>
-    <description>Still Growing!</description>
     <initialSeverity>1</initialSeverity>
     <labelNoun>a new born</labelNoun>
+    <description>Still Growing!</description>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-0.0014</severityPerDay>
