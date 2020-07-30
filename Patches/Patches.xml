@@ -69,7 +69,9 @@
 					defName = "Alien_Bunlander" or
 					defName = "Alien_BunTribe" or
 					defName = "Alien_BunTribeNew" or
-					defName = "Thrumkin"
+					defName = "Thrumkin" or
+					defName = "Harpy" or
+					defName = "Naga"
 					]/race/hediffGiverSets</xpath>
 				<value>
 					<li>Human</li>
