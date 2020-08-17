@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding ="utf-8"?>
 <ModMetaData>
-	<name>Age Matters Updated</name>
+	<name>Age Matters Updated [1.0][1.1][1.2]</name>
 	<author>Troopersmith1 - Mage5000</author>
 	<supportedVersions>
-	<li>1.0</li>
-	<li>1.1</li>
+		<li>1.0</li>
+		<li>1.1</li>
+		<li>1.2</li>
 	</supportedVersions>
 	<packageId>Troopersmith1.AgeMattersUpdated</packageId>
 	<url></url>
