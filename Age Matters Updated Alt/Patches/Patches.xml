@@ -1,0 +1,124 @@
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/HediffGiverSetDef[
+                    defName = "Human" or
+                    defName = "OrganicAgeless" or
+                    defName = "WolverineX" or
+                    defName = "OrganicKilhn" or
+                    defName = "GhoulStandard" or
+                    defName = "OrganicAvali" or
+					defName = "O21_SG_JaffaStandard"
+                    ]/hediffGivers</xpath>
+                <value>
+                    <li Class="HediffGiver_RandomAgeCurved">
+                        <hediff>Youth</hediff>
+                        <partsToAffect>
+                            <li>Torso</li>
+                        </partsToAffect>
+                        <ageFractionMtbDaysCurve>
+                            <points>
+                                <li>(0, 0.00001)</li>
+                                <li>(0.05, 9999999999)</li>
+                                <li>(0.6, 9999999999)</li>
+                                <li>(1, 9999999999)</li>
+                            </points>
+                        </ageFractionMtbDaysCurve>
+                    </li>
+                </value>
+            </li>
+			
+			<li Class="PatchOperationAdd">
+ 			<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "Alien_Bunlander" or
+					defName = "Alien_BunTribe" or
+					defName = "Alien_BunTribeNew"
+					]</xpath>
+				<value>
+					<race/>
+				</value>
+			</li>                       
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "Alien_Bunlander" or
+					defName = "Alien_BunTribe" or
+					defName = "Alien_BunTribeNew" or
+					defName = "O21_Alien_Bajoran" or
+					defName = "O21_Alien_Bolian" or
+					defName = "O21_Alien_Cardassian" or
+					defName = "O21_Alien_Klingon" or
+					defName = "O21_Alien_Orion" or
+					defName = "O21_Alien_Romulan" or
+					defName = "O21_Alien_Trill" or
+					defName = "O21_Alien_Vulcan"
+					]/race</xpath>
+				<value>
+					<hediffGiverSets/>
+				</value>
+			</li>
+				
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "O21_Alien_ElfBase" or
+					defName = "O21_Alien_Kobold" or
+					defName = "O21_Alien_Goblin" or
+					defName = "O21_Alien_Gith" or
+					defName = "O21_Alien_Hobgoblin" or
+					defName = "O21_Alien_Orc" or
+					defName = "O21_Alien_HalfOrc" or
+					defName = "O21_Alien_Tiefling" or
+					defName = "Alien_Callistan" or
+					defName = "Alien_TrenchCat" or
+					defName = "Rabbie" or
+					defName = "Alien_Bunlander" or
+					defName = "Alien_BunTribe" or
+					defName = "Alien_BunTribeNew"
+					]/race/hediffGiverSets</xpath>
+				<value>
+					<li>Human</li>
+				</value>
+			</li>
+
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "Thrumkin" or
+					defName = "Harpy" or
+					defName = "Naga" or
+					defName = "Ratkin" or
+					defName = "Alien_Leeani" or
+					defName = "Alien_Orassan" or
+					defName = "Alien_Argonian" or
+					defName = "Dragonian_Male" or
+					defName = "Dragonian_Female" or
+					defName = "Alien_Mantodean" or
+					defName = "Vulpes"
+					]/race/hediffGiverSets</xpath>
+				<value>
+					<li>Human</li>
+				</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+					defName = "O21_Alien_Bajoran" or
+					defName = "O21_Alien_Bolian" or
+					defName = "O21_Alien_Cardassian" or
+					defName = "O21_Alien_Klingon" or
+					defName = "O21_Alien_Orion" or
+					defName = "O21_Alien_Romulan" or
+					defName = "O21_Alien_Trill" or
+					defName = "O21_Alien_Vulcan"
+					]/race/hediffGiverSets</xpath>
+				<value>
+					<li>Human</li>
+				</value>
+			</li>
+			
+        </operations>
+    </Operation>
+</Patch>
