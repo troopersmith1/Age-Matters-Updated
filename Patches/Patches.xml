@@ -7,12 +7,13 @@
             <li Class="PatchOperationAdd">
                 <xpath>/Defs/HediffGiverSetDef[
                     defName = "Human" or
-                    defName = "OrganicAgeless" or
                     defName = "WolverineX" or
                     defName = "OrganicKilhn" or
                     defName = "GhoulStandard" or
                     defName = "OrganicAvali" or
-					defName = "O21_SG_JaffaStandard"
+					defName = "O21_SG_JaffaStandard" or
+					defName = "KroganHediffs" or
+					defName = "HanarHediffs"
                     ]/hediffGivers</xpath>
                 <value>
                     <li Class="HediffGiver_RandomAgeCurved">
@@ -512,7 +513,216 @@
 					<operations>
 						<li Class="PatchOperationAdd">
 							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
-								defName = "Alien_Orassan"
+								defName = "Alien_Orassan" or
+								defName = "Alien_OrassanHumanHybrid"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Orassans Lite</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Orassan" or
+								defName = "Alien_OrassanHumanHybrid"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Asari -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>RimEffect - Asari of the Rims Continued [1.1][1.2]</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Asari"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Rimeffect Races -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Rimeffect Races [1.2]</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Asari"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Racc Race -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Racc Race</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Racc"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Xenn Race -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Xenn Race</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Xenn"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Zabrak Race -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Zabrak Race</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Zabrak"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Twi'lek Race -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Twi'lek Race</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Twilek"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>Human</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Vulpine Race Pack -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Vulpine Race Pack</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Frijjid" or
+								defName = "Alien_Fennex"
 								]/race/hediffGiverSets</xpath>
 							<value>
 								<li>Human</li>
