@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<LifeStageDef>
+		<defName>HumanlikeOld</defName>
+		<label>elderly</label>
+		<visible>false</visible>
+		<statFactors>
+			<ImmunityGainSpeed>0.92</ImmunityGainSpeed>
+		</statFactors>
+		<reproductive>false</reproductive>
+	</LifeStageDef>
+
+</Defs>
