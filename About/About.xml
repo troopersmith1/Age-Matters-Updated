@@ -14,13 +14,17 @@
 	<description>
 This rework of Age Matters Updated would not have been possible without the MoHAR hediffs mod, made by Gouda quiche, ( https://steamcommunity.com/sharedfiles/filedetails/?id=2057001924 ) so head over and give that mod a positive rating as well if you like this mod.
 
-Makes being very young very detrimental for your abilites, as well as adding penalties for advanced age that affect all pawns. Intended to be used alongside mods that add children to get the full experience but does add to the game even if you do not use one of those mods, and none of the mods that add children are necessary for the mod to function.
+Makes being very young detrimental for your abilites, as well as adding penalties for advanced age that affect all pawns. Intended to be used alongside mods that add children to get the full experience but does add to the game even if you do not use one of those mods, and none of the mods that add children are necessary for the mod to function.
 
 This mod utilizes the lifestages of humans, as well as modded races, to simulate the effects of aging on a pawn over their life from birth to death. Adds a lifestage after adult, called elderly, that is used to express the effects of advanced age, even on those without specific issues, like a bad back.
 
 Also adds a crib for young children, only usable by pawns under a certain bodysize. Artwork for the crib provided by the talented Onyxae.
-
+		
 Life Stages:
+		
+Newborn (Not currently implemented)
+	Completely dependent on others for all needs, can't feed or dress themselves. Very short duration compared to other stages ~ 2 quadrums (30days). Will be confined to bed until reaching the "Baby" stage.
+	I would like feedback from you guys, let me know if this is something you would like added.
 
 Baby
 	Unable to speak yet, very poor manipulation, slow movement speed, very sleepy, periodically throws up
@@ -41,6 +45,9 @@ Elderly
 	Slightly reduced movement speed and manipulation, as well as a penalty to immunity gain speed, making them more vulnerable to diseases.
 	
 Compatibility:
+NOT ALL ALIEN RACES USE ALL LIFE STAGES. I have done the best I can to keep true to the design from the base mod when I added compatibility, but if anyone has suggestions, I'm not opposed to changing things around.
+Each alien race will require a patch to work with this mod. If you have a race that doesn't work, just let me know and I can add compatibility.
+		
 Currently compatible with the following races:
 [O21] Forgotten Realms
 [O21] Star Trek
