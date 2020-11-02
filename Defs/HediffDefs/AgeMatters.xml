@@ -23,7 +23,7 @@
 				<capMods>
 					<li>
 						<capacity>Manipulation</capacity>
-						<offset>-0.85</offset>
+						<setMax>0.15</setMax>
 					</li>
 					<li>
 						<capacity>Talking</capacity>
@@ -46,11 +46,11 @@
 				<capMods>
 					<li>
 						<capacity>Manipulation</capacity>
-						<offset>-0.65</offset>
+						<setMax>0.35</setMax>
 					</li>
 					<li>
 						<capacity>Talking</capacity>
-						<offset>-0.65</offset>
+						<setMax>0.35</setMax>
 					</li>
 				</capMods>
 				<vomitMtbDays>5</vomitMtbDays>
@@ -161,10 +161,6 @@
 						<capacity>Manipulation</capacity>
 						<offset>-0.15</offset>
 					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.1</offset>
-					</li>
 				</capMods>
 			</li>
 		</stages>
@@ -181,10 +177,6 @@
 						<capacity>Manipulation</capacity>
 						<offset>-0.15</offset>
 					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.1</offset>
-					</li>
 				</capMods>
 			</li>
 		</stages>
@@ -200,10 +192,6 @@
 					<li>
 						<capacity>Manipulation</capacity>
 						<offset>-0.15</offset>
-					</li>
-					<li>
-						<capacity>Moving</capacity>
-						<offset>-0.1</offset>
 					</li>
 				</capMods>
 			</li>

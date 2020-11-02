@@ -3290,6 +3290,7 @@
 									<shearable>true</shearable>
 									<statFactors>
 										<ImmunityGainSpeed>0.92</ImmunityGainSpeed>
+										<MoveSpeed>0.9</MoveSpeed>
 									</statFactors>
 									<reproductive>false</reproductive>
 								</LifeStageDef>
@@ -3406,6 +3407,7 @@
 									<shearable>true</shearable>
 									<statFactors>
 										<ImmunityGainSpeed>0.92</ImmunityGainSpeed>
+										<MoveSpeed>0.9</MoveSpeed>
 									</statFactors>
 									<reproductive>false</reproductive>
 								</LifeStageDef>
@@ -3522,6 +3524,7 @@
 									<shearable>true</shearable>
 									<statFactors>
 										<ImmunityGainSpeed>0.92</ImmunityGainSpeed>
+										<MoveSpeed>0.9</MoveSpeed>
 									</statFactors>
 									<reproductive>false</reproductive>
 								</LifeStageDef>
@@ -9887,6 +9890,7 @@
 									<meleeDamageFactor>1.5</meleeDamageFactor>
 									<statFactors>
 										<ImmunityGainSpeed>0.92</ImmunityGainSpeed>
+										<MoveSpeed>0.9</MoveSpeed>
 									</statFactors>
 								</LifeStageDef>
 							</value>
