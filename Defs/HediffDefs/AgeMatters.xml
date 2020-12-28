@@ -19,6 +19,38 @@
 		<stages>
 			<li>
 				<minSeverity>0</minSeverity>
+				<statOffsets>
+					<PainShockThreshold>-0.40</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
+				<restFallFactorOffset>2</restFallFactorOffset>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<setMax>0.15</setMax>
+					</li>
+					<li>
+						<capacity>Talking</capacity>
+						<setMax>0</setMax>
+					</li>
+				</capMods>
+				<vomitMtbDays>2</vomitMtbDays>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_baby2</defName>
+		<description>Still growing!</description>
+		<label>Baby</label>
+		<stages>
+			<li>
+				<minSeverity>0</minSeverity>
+				<statOffsets>
+					<PainShockThreshold>-0.40</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
 				<restFallFactorOffset>2</restFallFactorOffset>
 				<capMods>
 					<li>
@@ -43,6 +75,11 @@
 			<li>
 				<minSeverity>0</minSeverity>
 				<restFallFactorOffset>1.5</restFallFactorOffset>
+				<statOffsets>
+					<PainShockThreshold>-0.30</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
 				<capMods>
 					<li>
 						<capacity>Manipulation</capacity>
@@ -66,6 +103,11 @@
 			<li>
 				<minSeverity>0</minSeverity>
 				<restFallFactorOffset>0.4</restFallFactorOffset>
+				<statOffsets>
+					<PainShockThreshold>-0.20</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
 				<capMods>
 					<li>
 						<capacity>Manipulation</capacity>
@@ -88,6 +130,10 @@
 		<stages>
 			<li>
 				<minSeverity>0</minSeverity>
+				<statOffsets>
+					<PainShockThreshold>-0.10</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+				</statOffsets>
 				<mentalStateGivers>
 					<li>
 						<mentalState>BedroomTantrum</mentalState>
