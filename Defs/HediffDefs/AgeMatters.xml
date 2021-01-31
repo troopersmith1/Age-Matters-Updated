@@ -2,8 +2,8 @@
 <Defs>
 
 	<HediffDef Name="HiddenHediffBaseAM" Abstract="True">
-		<!-- <defName>HiddenHediffBase</defName> -->
-		<!-- <label>HiddenHediffBase.label</label> -->
+		<!-- <defName>HiddenHediffBaseAM</defName> -->
+		<!-- <label>HiddenHediffBaseAM.label</label> -->
 		<!-- <description>hidden desc</description> -->
 
 		<initialSeverity>0.001</initialSeverity>
@@ -12,7 +12,7 @@
 	</HediffDef>
 	
 		<!-- baby -->
-	<HediffDef ParentName="HiddenHediffBaseAM">
+	<HediffDef Name="AgeMatters_baby" ParentName="HiddenHediffBaseAM">
 		<defName>AgeMatters_baby</defName>
 		<description>Still growing!</description>
 		<label>Baby</label>
@@ -40,33 +40,8 @@
 			</li>
 		</stages>
 	</HediffDef>
-	<HediffDef ParentName="HiddenHediffBaseAM">
+	<HediffDef ParentName="AgeMatters_baby">
 		<defName>AgeMatters_baby2</defName>
-		<description>Still growing!</description>
-		<label>Baby</label>
-		<stages>
-			<li>
-				<becomeVisible>true</becomeVisible>
-				<minSeverity>0</minSeverity>
-				<statOffsets>
-					<PainShockThreshold>-0.40</PainShockThreshold>
-					<GlobalLearningFactor>0.35</GlobalLearningFactor>
-					<PawnBeauty>1</PawnBeauty>
-				</statOffsets>
-				<restFallFactorOffset>2</restFallFactorOffset>
-				<capMods>
-					<li>
-						<capacity>Manipulation</capacity>
-						<setMax>0.15</setMax>
-					</li>
-					<li>
-						<capacity>Talking</capacity>
-						<setMax>0</setMax>
-					</li>
-				</capMods>
-				<vomitMtbDays>2</vomitMtbDays>
-			</li>
-		</stages>
 	</HediffDef>
 		<!-- toddler -->
 	<HediffDef ParentName="HiddenHediffBaseAM">
@@ -307,7 +282,6 @@
 		
 		<stages>
 			<li>
-				<minSeverity>0</minSeverity>
 				<becomeVisible>false</becomeVisible>
 			</li>
 		</stages>

@@ -22,6 +22,201 @@
 		</operations>
 	</Operation>
 	
+	<!-- Children and Pregnancy -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Children and Pregnancy</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				    <success>Always</success>
+					<operations>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/HediffDef[
+								defName = "AgeMatters_baby"
+								]/stages</xpath>
+							<value>
+								<stages>
+									<li>
+										<becomeVisible>true</becomeVisible>
+										<minSeverity>0</minSeverity>
+										<statOffsets>
+											<PainShockThreshold>-0.40</PainShockThreshold>
+											<GlobalLearningFactor>0.35</GlobalLearningFactor>
+											<PawnBeauty>1</PawnBeauty>
+										</statOffsets>
+										<restFallFactorOffset>2</restFallFactorOffset>
+										<vomitMtbDays>2</vomitMtbDays>
+									</li>
+								</stages>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/HediffDef[
+								defName = "AgeMatters_toddler"
+								]/stages</xpath>
+							<value>
+								<stages>
+									<li>
+										<becomeVisible>true</becomeVisible>
+										<minSeverity>0</minSeverity>
+										<restFallFactorOffset>1.5</restFallFactorOffset>
+										<statOffsets>
+											<PainShockThreshold>-0.30</PainShockThreshold>
+											<GlobalLearningFactor>0.35</GlobalLearningFactor>
+											<PawnBeauty>1</PawnBeauty>
+										</statOffsets>
+										<vomitMtbDays>5</vomitMtbDays>
+									</li>
+								</stages>
+							</value>
+						</li>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/HediffDef[
+								defName = "AgeMatters_child"
+								]/stages</xpath>
+							<value>
+								<stages>
+									<li>
+										<becomeVisible>true</becomeVisible>
+										<minSeverity>0</minSeverity>
+										<restFallFactorOffset>0.4</restFallFactorOffset>
+										<statOffsets>
+											<PainShockThreshold>-0.20</PainShockThreshold>
+											<GlobalLearningFactor>0.35</GlobalLearningFactor>
+											<PawnBeauty>1</PawnBeauty>
+										</statOffsets>
+										<vomitMtbDays>40</vomitMtbDays>
+									</li>
+								</stages>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Default_Lifestages"
+								]/lifeStages/li[4]</xpath>
+							<value>
+								<capMods>
+									<li>
+										<capacity>Manipulation</capacity>
+										<offset>-0.15</offset>
+									</li>
+									<li>
+										<capacity>Talking</capacity>
+										<offset>-0.1</offset>
+									</li>
+								</capMods>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Human_Lifestages"
+								]/lifeStages/li[4]</xpath>
+							<value>
+								<capMods>
+									<li>
+										<capacity>Manipulation</capacity>
+										<offset>-0.15</offset>
+									</li>
+									<li>
+										<capacity>Talking</capacity>
+										<offset>-0.1</offset>
+									</li>
+								</capMods>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Ratkin_Lifestages"
+								]/lifeStages/li[4]</xpath>
+							<value>
+								<capMods>
+									<li>
+										<capacity>Manipulation</capacity>
+										<offset>-0.15</offset>
+									</li>
+									<li>
+										<capacity>Talking</capacity>
+										<offset>-0.1</offset>
+									</li>
+								</capMods>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Alien_Orassan_Lifestages"
+								]/lifeStages/li[4]</xpath>
+							<value>
+								<capMods>
+									<li>
+										<capacity>Manipulation</capacity>
+										<offset>-0.15</offset>
+									</li>
+									<li>
+										<capacity>Talking</capacity>
+										<offset>-0.1</offset>
+									</li>
+								</capMods>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Default_Lifestages"
+								]/lifeStages</xpath>
+							<value>
+								<li>
+									<lifeStageDef>HumanlikeOld</lifeStageDef>
+									<lifestageType>Adult</lifestageType>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Human_Lifestages"
+								]/lifeStages</xpath>
+							<value>
+								<li>
+									<lifeStageDef>HumanlikeOld</lifeStageDef>
+									<lifestageType>Adult</lifestageType>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Ratkin_Lifestages"
+								]/lifeStages</xpath>
+							<value>
+								<li>
+									<lifeStageDef>HumanlikeOld</lifeStageDef>
+									<lifestageType>Adult</lifestageType>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RimWorldChildren.RacialLifestageDef[
+								defName = "Alien_Orassan_Lifestages"
+								]/lifeStages</xpath>
+							<value>
+								<li>
+									<lifeStageDef>HumanlikeOld</lifeStageDef>
+									<lifestageType>Adult</lifestageType>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationRemove">
+							<xpath>/Defs/ThingDef[
+								defName = "AMCrib"
+								]</xpath>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
 	<!-- Rimeffect Races -->
 	
     <Operation Class="PatchOperationSequence">

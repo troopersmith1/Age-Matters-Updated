@@ -2,7 +2,7 @@
 <Defs>
   
   <ThingDef ParentName="FurnitureBase">
-    <defName>Crib</defName>
+    <defName>AMCrib</defName>
     <label>crib</label>
     <description>A high walled crib, designed to keep a young child safe and comfortable through the night.</description>
     <thingClass>Building_Bed</thingClass>
