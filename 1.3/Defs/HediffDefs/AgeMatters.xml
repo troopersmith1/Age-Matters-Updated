@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef Name="HiddenHediffBaseAM" Abstract="True">
+		<!-- <defName>HiddenHediffBaseAM</defName> -->
+		<!-- <label>HiddenHediffBaseAM.label</label> -->
+		<!-- <description>hidden desc</description> -->
+
+		<initialSeverity>0.001</initialSeverity>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+	</HediffDef>
+	
+		<!-- baby -->
+	<HediffDef Name="AgeMatters_baby" ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_baby</defName>
+		<description>Still growing!</description>
+		<label>Baby</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<statOffsets>
+					<PainShockThreshold>-0.40</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
+				<restFallFactorOffset>2</restFallFactorOffset>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<setMax>0.15</setMax>
+					</li>
+					<li>
+						<capacity>Talking</capacity>
+						<setMax>0</setMax>
+					</li>
+				</capMods>
+				<vomitMtbDays>2</vomitMtbDays>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="AgeMatters_baby">
+		<defName>AgeMatters_baby2</defName>
+	</HediffDef>
+		<!-- toddler -->
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_toddler</defName>
+		<description>Still growing!</description>
+		<label>Toddler</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<restFallFactorOffset>1.5</restFallFactorOffset>
+				<statOffsets>
+					<PainShockThreshold>-0.30</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<setMax>0.35</setMax>
+					</li>
+					<li>
+						<capacity>Talking</capacity>
+						<setMax>0.35</setMax>
+					</li>
+				</capMods>
+				<vomitMtbDays>5</vomitMtbDays>
+			</li>
+		</stages>
+	</HediffDef>
+		<!-- child -->
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_child</defName>
+		<description>Still growing!</description>
+		<label>Child</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<restFallFactorOffset>0.4</restFallFactorOffset>
+				<statOffsets>
+					<PainShockThreshold>-0.20</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+					<PawnBeauty>1</PawnBeauty>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.15</offset>
+					</li>
+					<li>
+						<capacity>Talking</capacity>
+						<offset>-0.1</offset>
+					</li>
+				</capMods>
+				<vomitMtbDays>40</vomitMtbDays>
+			</li>
+		</stages>
+	</HediffDef>
+		<!-- teenager -->
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_teenager</defName>
+		<description>Puberty can be so challenging!</description>
+		<label>Teenager</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<statOffsets>
+					<PainShockThreshold>-0.10</PainShockThreshold>
+					<GlobalLearningFactor>0.35</GlobalLearningFactor>
+				</statOffsets>
+				<mentalStateGivers>
+					<li>
+						<mentalState>BedroomTantrum</mentalState>
+						<mtbDays>120</mtbDays>
+					</li>
+					<li>
+						<mentalState>Binging_Food</mentalState>
+						<mtbDays>120</mtbDays>
+					</li>
+					<li>
+						<mentalState>Wander_Sad</mentalState>
+						<mtbDays>180</mtbDays>
+					</li>
+					<li>
+						<mentalState>Wander_OwnRoom</mentalState>
+						<mtbDays>120</mtbDays>
+					</li>
+					<li>
+						<mentalState>InsultingSpree</mentalState>
+						<mtbDays>180</mtbDays>
+					</li>
+					<li>
+						<mentalState>TargetedInsultingSpree</mentalState>
+						<mtbDays>180</mtbDays>
+					</li>
+				</mentalStateGivers>
+			</li>
+		</stages>
+	</HediffDef>
+		<!-- adult -->
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_adult</defName>
+		<description>All grown up!</description>
+		<label>Adult</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_adult2</defName>
+		<description>All grown up!</description>
+		<label>Adult</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_adult3</defName>
+		<description>All grown up!</description>
+		<label>Adult</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+			</li>
+		</stages>
+	</HediffDef>
+		<!-- old -->
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_old</defName>
+		<description>Age catches up to us all...</description>
+		<label>Elderly</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_old2</defName>
+		<description>Age catches up to us all...</description>
+		<label>Elderly</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_old3</defName>
+		<description>Age catches up to us all...</description>
+		<label>Elderly</label>
+		<stages>
+			<li>
+				<becomeVisible>true</becomeVisible>
+				<minSeverity>0</minSeverity>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.15</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<ThoughtDef>
+		<defName>AMHappyBaby</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>AgeMatters_baby</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>Simplicity of Youth</label>
+				<description>No Worries!</description>
+				<baseMoodEffect>25</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+  
+	<ThoughtDef>
+		<defName>AMHappyToddler</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>AgeMatters_toddler</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>Simplicity of Youth</label>
+				<description>No Worries!</description>
+				<baseMoodEffect>25</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+  
+	<ThoughtDef>
+		<defName>AMHappyChild</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>AgeMatters_child</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>Simplicity of Youth</label>
+				<description>No Worries!</description>
+				<baseMoodEffect>25</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<HediffDef ParentName="HiddenHediffBaseAM">
+		<defName>AgeMatters_OneHediffPerLifeStageHuman</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+
+		<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+		<label>Age Matters</label>
+		<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+		
+		<stages>
+			<li>
+				<becomeVisible>false</becomeVisible>
+			</li>
+		</stages>
+
+		<comps>
+			<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+				<race>Human</race>
+
+				<bodyPartDef></bodyPartDef>
+
+				<associations>
+					<li>
+						<lifeStageDef>HumanlikeBaby</lifeStageDef>
+						<hediff>AgeMatters_baby</hediff>
+					</li>
+					<li>
+						<lifeStageDef>HumanlikeToddler</lifeStageDef>
+						<hediff>AgeMatters_toddler</hediff>
+					</li>
+					<li>
+						<lifeStageDef>HumanlikeChild</lifeStageDef>
+						<hediff>AgeMatters_child</hediff>
+					</li>
+					<li>
+						<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+						<hediff>AgeMatters_teenager</hediff>
+					</li>
+					<li>
+						<lifeStageDef>HumanlikeAdult</lifeStageDef>
+						<hediff>AgeMatters_adult</hediff>
+					</li>
+					<li>
+						<lifeStageDef>HumanlikeOld</lifeStageDef>
+						<hediff>AgeMatters_old</hediff>
+					</li>
+				</associations>
+				
+				<!-- <debug>true</debug> -->
+			</li>
+		</comps>
+	</HediffDef>
+	
+</Defs>

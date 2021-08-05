@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffGiverSetDef>
+		<defName>AgeMatters</defName>
+		<hediffGivers>
+			<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+				<hediff>AgeMatters_OneHediffPerLifeStageHuman</hediff>
+			</li>
+		</hediffGivers>
+	</HediffGiverSetDef>
+
+</Defs>
