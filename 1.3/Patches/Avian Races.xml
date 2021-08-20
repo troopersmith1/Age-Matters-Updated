@@ -1,0 +1,1009 @@
+<Patch>
+	
+	<!-- Avian Races -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Avian Races</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				    <success>Always</success>
+					<operations>			
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Cassowary" or
+								defName = "Alien_Chicken" or
+								defName = "Alien_Dodo" or
+								defName = "Alien_Owl" or
+								defName = "Alien_Parrot" or
+								defName = "Alien_Penguin" or
+								defName = "Alien_Vulture"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>AgeMatters</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Cassowary" or
+								defName = "Alien_Chicken" or
+								defName = "Alien_Dodo" or
+								defName = "Alien_Owl" or
+								defName = "Alien_Parrot" or
+								defName = "Alien_Penguin" or
+								defName = "Alien_Vulture"
+								]/race/lifeStageAges</xpath>
+							<value>
+								<li>
+									<def>HumanlikeOld</def>
+									<minAge>55</minAge>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageCassowary</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageChicken</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageDodo</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageOwl</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageParrot</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStagePenguin</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageVulture</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageCassowary</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Cassowary</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageChicken</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Chicken</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageDodo</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Dodo</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageOwl</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Owl</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageParrot</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Parrot</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStagePenguin</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Penguin</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageVulture</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Vulture</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Avian Races only One Faction</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				    <success>Always</success>
+					<operations>			
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Cassowary" or
+								defName = "Alien_Chicken" or
+								defName = "Alien_Dodo" or
+								defName = "Alien_Owl" or
+								defName = "Alien_Parrot" or
+								defName = "Alien_Penguin" or
+								defName = "Alien_Vulture"
+								]/race/hediffGiverSets</xpath>
+							<value>
+								<li>AgeMatters</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/AlienRace.ThingDef_AlienRace[
+								defName = "Alien_Cassowary" or
+								defName = "Alien_Chicken" or
+								defName = "Alien_Dodo" or
+								defName = "Alien_Owl" or
+								defName = "Alien_Parrot" or
+								defName = "Alien_Penguin" or
+								defName = "Alien_Vulture"
+								]/race/lifeStageAges</xpath>
+							<value>
+								<li>
+									<def>HumanlikeOld</def>
+									<minAge>55</minAge>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageCassowary</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageChicken</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageDodo</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageOwl</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageParrot</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStagePenguin</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/HediffGiverSetDef[defName = "AgeMatters"]/hediffGivers</xpath>
+							<value>
+								<li Class="OHPLS.CustomRace_HediffGiver_OHPLS">
+									<hediff>AgeMatters_OneHediffPerLifeStageVulture</hediff>
+								</li>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageCassowary</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Cassowary</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageChicken</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Chicken</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageDodo</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Dodo</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageOwl</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Owl</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageParrot</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Parrot</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStagePenguin</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Penguin</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>Defs</xpath>
+							<value>
+								<HediffDef ParentName="HiddenHediffBaseAM">
+									<defName>AgeMatters_OneHediffPerLifeStageVulture</defName>
+									<hediffClass>HediffWithComps</hediffClass>
+
+									<description>Simulates the effects of aging on a pawn over their lifespan from birth to death.</description>
+									<label>Age Matters</label>
+									<labelNoun>OneHediffPerLifeStage.labelNoun</labelNoun>
+									
+									<stages>
+										<li>
+											<minSeverity>0</minSeverity>
+											<becomeVisible>false</becomeVisible>
+										</li>
+									</stages>
+
+									<comps>
+										<li Class="OHPLS.HediffCompProperties_LifeStageHediffAssociation">
+											<race>Alien_Vulture</race>
+
+											<bodyPartDef></bodyPartDef>
+
+											<associations>
+												<li>
+													<lifeStageDef>HumanlikeBaby</lifeStageDef>
+													<hediff>AgeMatters_baby</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeToddler</lifeStageDef>
+													<hediff>AgeMatters_toddler</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeChild</lifeStageDef>
+													<hediff>AgeMatters_child</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeTeenager</lifeStageDef>
+													<hediff>AgeMatters_teenager</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeAdult</lifeStageDef>
+													<hediff>AgeMatters_adult</hediff>
+												</li>
+												<li>
+													<lifeStageDef>HumanlikeOld</lifeStageDef>
+													<hediff>AgeMatters_old</hediff>
+												</li>
+											</associations>
+											
+											<debug>false</debug>
+										</li>
+									</comps>
+								</HediffDef>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>
+	</Operation>
+				
+</Patch>

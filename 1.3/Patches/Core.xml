@@ -1,0 +1,58 @@
+<Patch>
+
+	<!-- Core -->
+
+    <Operation Class="PatchOperationSequence">
+        <operations>			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="Human"]/race/hediffGiverSets</xpath>
+				<value>
+					<li>AgeMatters</li>
+				</value>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="Human"]/race/lifeStageAges</xpath>
+				<value>
+					<li>
+						<def>HumanlikeOld</def>
+						<minAge>65</minAge>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	
+	<!-- Ideology -->
+	
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+			<li Class="PatchOperationFindMod">
+				<mods>
+					<li>Ideology</li>
+				</mods>
+				<match Class="PatchOperationSequence">
+				    <success>Always</success>
+					<operations>			
+						<li Class="PatchOperationreplace">
+							<xpath>/Defs/ThingDef[defName="BiosculpterPod"]/comps/li[5]</xpath>
+							<value>
+								<li Class="AgeMatters.CompProperties_BiosculpterPod_AgeReversalCycle">
+									<key>ageReversal</key>
+									<label>age reversal</label>
+									<description>Reverse one year of aging.</description>
+									<iconPath>UI/Gizmos/BiosculpterCycleAgeReversal</iconPath>
+									<nutritionRequired>10</nutritionRequired>
+									<durationDays>10</durationDays>
+									<gainThoughtOnCompletion>AgeReversalReceived</gainThoughtOnCompletion>
+									<operatingColor>(1.000,0.585,0.158)</operatingColor>
+								</li>
+							</value>
+						</li>
+					</operations>
+				</match>
+			</li>
+		</operations>	
+	</Operation>
+				
+</Patch>
