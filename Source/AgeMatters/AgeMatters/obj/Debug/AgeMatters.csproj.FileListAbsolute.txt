@@ -3,3 +3,10 @@ C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\A
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\AgeMatters\AgeMatters\obj\Debug\AgeMatters.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\AgeMatters\AgeMatters\obj\Debug\AgeMatters.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\AgeMatters\AgeMatters\obj\Debug\AgeMatters.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\AgeMatters\1.3\Assemblies\AgeMatters.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\AgeMatters\1.3\Assemblies\AgeMatters.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\1.3\Assemblies\AgeMatters.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\1.3\Assemblies\AgeMatters.pdb
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\Source\AgeMatters\AgeMatters\bin\Debug\0Harmony.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\1.3\Assemblies\AgeMatters.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Age Matters\1.3\Assemblies\AgeMatters.pdb
