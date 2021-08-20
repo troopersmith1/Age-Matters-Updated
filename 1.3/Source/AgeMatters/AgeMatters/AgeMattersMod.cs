@@ -34,7 +34,7 @@ namespace AgeMatters
         }
     }
 
-public class AgeMattersMod : Mod
+    public class AgeMattersMod : Mod
     {
         public AgeMattersSettings settings;
         public static AgeMattersMod mod;
@@ -56,6 +56,8 @@ public class AgeMattersMod : Mod
             listingStandard.Begin(inRect);
             listingStandard.Label("Settings - Any changes made here will require a restart to take effect.");
             listingStandard.CheckboxLabeled("Hidden Lifestages", ref settings.HiddenHediff, "Hide the age hediffs (e.g. 'Teenager')");
+            listingStandard.Label("Do not use this fix if you have CSL enabled, use the fix included with that mod instead.");
+            listingStandard.CheckboxLabeled("Fix Lifestages", ref settings.FixLifestages, "Fix the incorrect Lifestages (Code provided by Dylan");
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
         }
@@ -65,11 +67,14 @@ public class AgeMattersMod : Mod
     public class AgeMattersSettings : ModSettings
     {
         public bool HiddenHediff = true;
+        public bool FixLifestages = true;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref HiddenHediff, "Hidden", true);
+            base.ExposeData();
+            Scribe_Values.Look(ref FixLifestages, "LifestageFix", true);
         }
     }
 
