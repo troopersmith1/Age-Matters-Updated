@@ -35,7 +35,7 @@
 				    <success>Always</success>
 					<operations>			
 						<li Class="PatchOperationreplace">
-							<xpath>/Defs/ThingDef[defName="BiosculpterPod"]/comps/li[5]</xpath>
+							<xpath>/Defs/ThingDef[defName="BiosculpterPod"]/comps/li[key="ageReversal"]</xpath>
 							<value>
 								<li Class="AgeMatters.CompProperties_BiosculpterPod_AgeReversalCycle">
 									<key>ageReversal</key>
