@@ -16,7 +16,8 @@ namespace AgeMatters
     {
         //This fix provided by Dylan, author of Children, School, and Learning
 
-    public static bool ModCSL_ON = Pawn_AgeTracker_AdultMinAge_Patch.StartsWithIsModActive("Children, school and learning");
+        public static bool ModCSL_ON = Pawn_AgeTracker_AdultMinAge_Patch.StartsWithIsModActive("Children, school and learning");
+
 
         [HarmonyPatch(typeof(Pawn_AgeTracker))]
         [HarmonyPatch("TicksToAdulthood", MethodType.Getter)]
@@ -36,7 +37,7 @@ namespace AgeMatters
                 }
                 catch //(Exception e)
                 {
-                   // if (Prefs.DevMode == true) { Log.Error("CSL: Pawn_AgeTracker TicksToAdulthood: error: " + e.Message); }
+                   // if (Prefs.DevMode == true) { Log.Error("Age Matters: Pawn_AgeTracker TicksToAdulthood: error: " + e.Message); }
                 }
             }
             public static long FloorToLong(float f)
@@ -62,7 +63,7 @@ namespace AgeMatters
                 }
                 catch //(Exception e)
                 {
-                   // if (Prefs.DevMode == true) { Log.Error("CSL: Pawn_AgeTracker AdultMinAge: error: " + e.Message); }
+                   // if (Prefs.DevMode == true) { Log.Error("Age Matters: Pawn_AgeTracker AdultMinAge: error: " + e.Message); }
                 }
             }
 
@@ -125,7 +126,7 @@ namespace AgeMatters
                         }
                         catch //(Exception e)
                         {
-                           // if (Prefs.DevMode == true) { Log.Error("CSL: GetMinAgeForAdulthoodHAR: error: " + e.Message); }
+                           // if (Prefs.DevMode == true) { Log.Error("Age Matters: GetMinAgeForAdulthoodHAR: error: " + e.Message); }
                         }
                         if (resultHAR > resultCSL)
                         {
@@ -156,7 +157,7 @@ namespace AgeMatters
                 }
                 catch //(Exception e)
                 {
-                   // if (Prefs.DevMode == true) { Log.Error("CSL: PawnDefaultAdultAge: error: " + e.Message); }
+                   // if (Prefs.DevMode == true) { Log.Error("Age Matters: PawnDefaultAdultAge: error: " + e.Message); }
                 }
                 try { if (resultNow <= 0) { resultNow = 0.0001f; /*never return fully 0 because divide etc..*/ } } catch { }
                 return resultNow;
@@ -182,7 +183,7 @@ namespace AgeMatters
                 }
                 catch //(Exception e)
                 {
-                   // if (Prefs.DevMode == true) { Log.Error("CSL: GetChildRaceAgeAdultFallbackGiven: error: " + e.Message); }
+                   // if (Prefs.DevMode == true) { Log.Error("Age Matters: GetChildRaceAgeAdultFallbackGiven: error: " + e.Message); }
                 }
                 return Age;
             }
@@ -214,7 +215,7 @@ namespace AgeMatters
                 }
                 catch //(Exception e)
                 {
-                    //if (Prefs.DevMode == true) { Log.Error("CSL: GetChildRaceAgeByString: error: " + e.Message); }
+                    //if (Prefs.DevMode == true) { Log.Error("Age Matters: GetChildRaceAgeByString: error: " + e.Message); }
                 }
                 return Age;
             }
@@ -255,53 +256,59 @@ namespace AgeMatters
             {
                 try
                 {
-                    bool instructionsFoundMinAgeLifeStage = false;
-                    var codes = new List<CodeInstruction>(instructions);
-                    for (int i = 0; i < codes.Count; i++)
+                    bool CSLNotActive = !ModCSL_ON;
+                    AgeMattersSettings settings = AgeMattersMod.mod.settings;
+                    bool TryFixLifestages = settings.FixLifestages;
+                    if (TryFixLifestages && CSLNotActive)
                     {
-                        if (codes[i].opcode == System.Reflection.Emit.OpCodes.Ldarg_0)
+                        bool instructionsFoundMinAgeLifeStage = false;
+                        var codes = new List<CodeInstruction>(instructions);
+                        for (int i = 0; i < codes.Count; i++)
                         {
-                            if ((i + 1) < codes.Count && codes[i + 1].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 1].operand.ToString().EndsWith("pawn"))
+                            if (codes[i].opcode == System.Reflection.Emit.OpCodes.Ldarg_0)
                             {
-                                if ((i + 2) < codes.Count && codes[i + 2].opcode == System.Reflection.Emit.OpCodes.Callvirt && codes[i + 2].operand.ToString().EndsWith("get_RaceProps()"))
+                                if ((i + 1) < codes.Count && codes[i + 1].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 1].operand.ToString().EndsWith("pawn"))
                                 {
-                                    if ((i + 3) < codes.Count && codes[i + 3].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 3].operand.ToString().EndsWith("lifeStageAges"))
+                                    if ((i + 2) < codes.Count && codes[i + 2].opcode == System.Reflection.Emit.OpCodes.Callvirt && codes[i + 2].operand.ToString().EndsWith("get_RaceProps()"))
                                     {
-                                        if ((i + 12) < codes.Count && codes[i + 12].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 12].operand.ToString().EndsWith("minAge"))
+                                        if ((i + 3) < codes.Count && codes[i + 3].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 3].operand.ToString().EndsWith("lifeStageAges"))
                                         {
-                                            if ((i + 15) < codes.Count && codes[i + 15].opcode == System.Reflection.Emit.OpCodes.Call && codes[i + 15].operand.ToString().Contains("Lerp"))
+                                            if ((i + 12) < codes.Count && codes[i + 12].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 12].operand.ToString().EndsWith("minAge"))
                                             {
-                                                //found the right place!
-                                                //nop until minAge before this.growth + Lerp(float32, float32, float32)
-                                                for (int m = 2; m <= 12; m++)
+                                                if ((i + 15) < codes.Count && codes[i + 15].opcode == System.Reflection.Emit.OpCodes.Call && codes[i + 15].operand.ToString().Contains("Lerp"))
                                                 {
-                                                    codes[i + m].opcode = System.Reflection.Emit.OpCodes.Nop;
+                                                    //found the right place!
+                                                    //nop until minAge before this.growth + Lerp(float32, float32, float32)
+                                                    for (int m = 2; m <= 12; m++)
+                                                    {
+                                                        codes[i + m].opcode = System.Reflection.Emit.OpCodes.Nop;
+                                                    }
+                                                    //call my func with 0.0f, pawn, growth instead of Lerp(float32, float32, float32)
+                                                    codes[i + 15].opcode = System.Reflection.Emit.OpCodes.Call;
+                                                    codes[i + 15].operand = AccessTools.Method(typeof(Pawn_AgeTracker_RecalculateLifeStageIndex_Lifestage_Transpiler_Patch), nameof(Pawn_AgeTracker_RecalculateLifeStageIndex_Lifestage_Transpiler_Patch.GetLifeStageIndexCurrentAge));
+                                                    instructionsFoundMinAgeLifeStage = true;
+                                                    break;
                                                 }
-                                                //call my func with 0.0f, pawn, growth instead of Lerp(float32, float32, float32)
-                                                codes[i + 15].opcode = System.Reflection.Emit.OpCodes.Call;
-                                                codes[i + 15].operand = AccessTools.Method(typeof(Pawn_AgeTracker_RecalculateLifeStageIndex_Lifestage_Transpiler_Patch), nameof(Pawn_AgeTracker_RecalculateLifeStageIndex_Lifestage_Transpiler_Patch.GetLifeStageIndexCurrentAge));
-                                                instructionsFoundMinAgeLifeStage = true;
-                                                break;
                                             }
                                         }
                                     }
                                 }
                             }
                         }
+                        if (instructionsFoundMinAgeLifeStage == true)
+                        {
+                            if (Prefs.DevMode == true) { Log.Message("Age Matters: Transpiler(RecalculateLifeStageIndex): Patched!"); }
+                        }
+                        else
+                        {
+                            if (Prefs.DevMode == true) { Log.Error("Age Matters: Transpiler(RecalculateLifeStageIndex): Not patched! (maybe another mod messed things up?)"); } //todo real readable error + tips other mods etc.
+                        }
+                        return codes.AsEnumerable();
                     }
-                    if (instructionsFoundMinAgeLifeStage == true)
-                    {
-                        if (Prefs.DevMode == true) { Log.Message("CSL: Transpiler(RecalculateLifeStageIndex): Patched!"); }
-                    }
-                    else
-                    {
-                        if (Prefs.DevMode == true) { Log.Error("CSL: Transpiler(RecalculateLifeStageIndex): Not patched! (maybe another mod messed things up?)"); } //todo real readable error + tips other mods etc.
-                    }
-                    return codes.AsEnumerable();
                 }
                 catch //(Exception e)
                 {
-                   // if (Prefs.DevMode == true) { Log.Error("CSL: Transpiler(RecalculateLifeStageIndex): error: " + e.Message); }
+                    // if (Prefs.DevMode == true) { Log.Error("Age Matters: Transpiler(RecalculateLifeStageIndex): error: " + e.Message); }
                 }
                 return instructions; //no modification
             }
@@ -334,49 +341,55 @@ namespace AgeMatters
             {
                 try
                 {
-                    bool instructionsFoundMinAgeLifeStage = false;
-                    var codes = new List<CodeInstruction>(instructions);
-                    for (int i = 0; i < codes.Count; i++)
+                    bool CSLNotActive = !ModCSL_ON;
+                    AgeMattersSettings settings = AgeMattersMod.mod.settings;
+                    bool TryFixLifestages = settings.FixLifestages;
+                    if (TryFixLifestages && CSLNotActive)
                     {
-                        if (codes[i].opcode == System.Reflection.Emit.OpCodes.Ldarg_0)
+                        bool instructionsFoundMinAgeLifeStage = false;
+                        var codes = new List<CodeInstruction>(instructions);
+                        for (int i = 0; i < codes.Count; i++)
                         {
-                            if ((i + 1) < codes.Count && codes[i + 1].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 1].operand.ToString().EndsWith("pawn"))
+                            if (codes[i].opcode == System.Reflection.Emit.OpCodes.Ldarg_0)
                             {
-                                if ((i + 2) < codes.Count && codes[i + 2].opcode == System.Reflection.Emit.OpCodes.Callvirt && codes[i + 2].operand.ToString().EndsWith("get_RaceProps()"))
+                                if ((i + 1) < codes.Count && codes[i + 1].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 1].operand.ToString().EndsWith("pawn"))
                                 {
-                                    if ((i + 3) < codes.Count && codes[i + 3].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 3].operand.ToString().EndsWith("lifeStageAges"))
+                                    if ((i + 2) < codes.Count && codes[i + 2].opcode == System.Reflection.Emit.OpCodes.Callvirt && codes[i + 2].operand.ToString().EndsWith("get_RaceProps()"))
                                     {
-                                        if ((i + 12) < codes.Count && codes[i + 12].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 12].operand.ToString().EndsWith("minAge"))
+                                        if ((i + 3) < codes.Count && codes[i + 3].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 3].operand.ToString().EndsWith("lifeStageAges"))
                                         {
-                                            //found the right place!
-                                            codes[i + 2].opcode = System.Reflection.Emit.OpCodes.Call;
-                                            codes[i + 2].operand = AccessTools.Method(typeof(Pawn_AgeTracker_CalculateInitialGrowth_Lifestage_Transpiler_Patch), nameof(Pawn_AgeTracker_CalculateInitialGrowth_Lifestage_Transpiler_Patch.GetMinAgeAdultLifestage));
-                                            //nop rest until minAge before DIV
-                                            for (int m = 3; m <= 12; m++)
+                                            if ((i + 12) < codes.Count && codes[i + 12].opcode == System.Reflection.Emit.OpCodes.Ldfld && codes[i + 12].operand.ToString().EndsWith("minAge"))
                                             {
-                                                codes[i + m].opcode = System.Reflection.Emit.OpCodes.Nop;
+                                                //found the right place!
+                                                codes[i + 2].opcode = System.Reflection.Emit.OpCodes.Call;
+                                                codes[i + 2].operand = AccessTools.Method(typeof(Pawn_AgeTracker_CalculateInitialGrowth_Lifestage_Transpiler_Patch), nameof(Pawn_AgeTracker_CalculateInitialGrowth_Lifestage_Transpiler_Patch.GetMinAgeAdultLifestage));
+                                                //nop rest until minAge before DIV
+                                                for (int m = 3; m <= 12; m++)
+                                                {
+                                                    codes[i + m].opcode = System.Reflection.Emit.OpCodes.Nop;
+                                                }
+                                                instructionsFoundMinAgeLifeStage = true;
+                                                break;
                                             }
-                                            instructionsFoundMinAgeLifeStage = true;
-                                            break;
                                         }
                                     }
                                 }
                             }
                         }
+                        if (instructionsFoundMinAgeLifeStage == true)
+                        {
+                            if (Prefs.DevMode == true) { Log.Message("Age Matters: Transpiler(CalculateInitialGrowth): Patched!"); }
+                        }
+                        else
+                        {
+                            if (Prefs.DevMode == true) { Log.Error("Age Matters: Transpiler(CalculateInitialGrowth): Not patched! (maybe another mod messed things up?)"); }
+                        }
+                        return codes.AsEnumerable();
                     }
-                    if (instructionsFoundMinAgeLifeStage == true)
-                    {
-                        if (Prefs.DevMode == true) { Log.Message("CSL: Transpiler(CalculateInitialGrowth): Patched!"); }
-                    }
-                    else
-                    {
-                        if (Prefs.DevMode == true) { Log.Error("CSL: Transpiler(CalculateInitialGrowth): Not patched! (maybe another mod messed things up?)"); }
-                    }
-                    return codes.AsEnumerable();
                 }
                 catch //(Exception e)
                 {
-                   // if (Prefs.DevMode == true) { Log.Error("CSL: Transpiler(CalculateInitialGrowth): error: " + e.Message); }
+                    // if (Prefs.DevMode == true) { Log.Error("Age Matters: Transpiler(CalculateInitialGrowth): error: " + e.Message); }
                 }
                 return instructions; //no modification
             }
@@ -440,7 +453,7 @@ namespace AgeMatters
                             {
                                 Traverse.Create(pawn.ageTracker).Method("CalculateInitialGrowth").GetValue(); //let the base-game trigger it to interact more with other mods.. (no real calc here now needed with other fixes)
                                 Traverse.Create(pawn.ageTracker).Method("RecalculateLifeStageIndex").GetValue(); //call RecalculateLifeStageIndex
-                                if (Prefs.DevMode == true && log == true) { Log.Message("CSL: LifestageCorrectionGrowth(active): Pawn: " + pawn.Name.ToString() + " minAge: " + AdultMinAge.ToString() + " Growth is: " + growthCurrent.ToString() + " Growth should be: " + growthCaclulated.ToString() + " correcting.. calling CalculateInitialGrowth() then RecalculateLifeStageIndex() now growth is:" + pawn.ageTracker.Growth.ToString()); }
+                                if (Prefs.DevMode == true && log == true) { Log.Message("Age Matter: LifestageCorrectionGrowth(active): Pawn: " + pawn.Name.ToString() + " minAge: " + AdultMinAge.ToString() + " Growth is: " + growthCurrent.ToString() + " Growth should be: " + growthCaclulated.ToString() + " correcting.. calling CalculateInitialGrowth() then RecalculateLifeStageIndex() now growth is:" + pawn.ageTracker.Growth.ToString()); }
                             }
                         }
                     }
