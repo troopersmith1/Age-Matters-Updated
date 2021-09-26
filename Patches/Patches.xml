@@ -44,7 +44,7 @@
 										<becomeVisible>true</becomeVisible>
 										<minSeverity>0</minSeverity>
 										<statOffsets>
-											<PainShockThreshold>-0.40</PainShockThreshold>
+											<PainShockThreshold>-0.15</PainShockThreshold>
 											<GlobalLearningFactor>0.35</GlobalLearningFactor>
 											<PawnBeauty>1</PawnBeauty>
 										</statOffsets>
@@ -65,7 +65,7 @@
 										<minSeverity>0</minSeverity>
 										<restFallFactorOffset>1.5</restFallFactorOffset>
 										<statOffsets>
-											<PainShockThreshold>-0.30</PainShockThreshold>
+											<PainShockThreshold>-0.15</PainShockThreshold>
 											<GlobalLearningFactor>0.35</GlobalLearningFactor>
 											<PawnBeauty>1</PawnBeauty>
 										</statOffsets>
@@ -85,7 +85,7 @@
 										<minSeverity>0</minSeverity>
 										<restFallFactorOffset>0.4</restFallFactorOffset>
 										<statOffsets>
-											<PainShockThreshold>-0.20</PainShockThreshold>
+											<PainShockThreshold>-0.15</PainShockThreshold>
 											<GlobalLearningFactor>0.35</GlobalLearningFactor>
 											<PawnBeauty>1</PawnBeauty>
 										</statOffsets>
