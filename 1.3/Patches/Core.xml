@@ -42,8 +42,7 @@
 									<label>age reversal</label>
 									<description>Reverse one year of aging.</description>
 									<iconPath>UI/Gizmos/BiosculpterCycleAgeReversal</iconPath>
-									<nutritionRequired>10</nutritionRequired>
-									<durationDays>10</durationDays>
+									<durationDays>8</durationDays>
 									<gainThoughtOnCompletion>AgeReversalReceived</gainThoughtOnCompletion>
 									<operatingColor>(1.000,0.585,0.158)</operatingColor>
 								</li>
